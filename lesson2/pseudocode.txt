@@ -1,0 +1,43 @@
+a function that returns the sum of two numbers
+
+informal
+//create a function that receives two nubmer arguments
+//return the result of adding the two arguments values
+
+formal
+//START
+//SET variable 'add' to the value of a function that receives two number arguments
+  //PRINT the result of adding the two arguments 
+//END
+
+
+a function that determines the index of the 3rd occurrence of a given character in a string. 
+For instance, if the given character is 'x' and the string is 'axbxcdxex', the function should 
+return 6 (the index of the 3rd 'x'). If the given character does not occur at least 3 times, 
+return null.
+
+Informal
+create a function that receives a target character and a string.
+  -initialize a counter variable to the number zero.
+  -loop through the string
+    -on each iteration check if the value of the current character is equal to the target character
+    -if it is, 
+      -incriment the counter variable
+      -Check if the counter variable is equal to 3. if it is,
+        - return the current string character index for this iteration of the loop
+  -if the counter variable is < 3 after looping through the whole string, return Null
+
+/*
+Formal
+START
+
+SET tripleTargetIndexChecker to a function expression that receives two string arguments 'target' and 'str'
+  SET counter = 0
+  WHILE iterator < length of str
+    IF character value at iterator index  === target
+      counter = counter + 1
+      IF counter === 3
+        PRINT iterator
+  IF counter < 3
+    PRINT Null
+*/
