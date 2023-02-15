@@ -57,14 +57,16 @@ while (invalidNumber(sNum)) {
 
 //get the user's desired operation and store it in a way that it can be used to
 //access the appropriate callback function stored in the operations array
-let selectedOperation = Number(rls.question(prompt('What operation would you like to perform? 1) Add 2) Subtract 3) Multiply 4) Divide: ')) - 1);
-//let selectedOperation = rls.keyInSelect(opNames(operations), prompt('Select an operation:'), { cancel: false }); //this way is cooler and eliminates the need for user validation on this step
+//let selectedOperation = Number(rls.question(prompt('What operation would you like to perform? 1) Add 2) Subtract 3) Multiply 4) Divide: ')) - 1);
+let selectedOperation = rls.keyInSelect(opNames(operations), prompt('Select an operation:'), { cancel: false }); //this way is cooler and eliminates the need for user validation on this step
 
 //check user input to make sure that it is valid
+/*
 while (![0,1,2,3].includes(selectedOperation)) {
   console.log(prompt('Must choose 1, 2, 3, or 4'));
   selectedOperation = Number(rls.question()) - 1;
 }
+*/
 
 //calculate the result of the operation using the callback stored in the
 //operations array
