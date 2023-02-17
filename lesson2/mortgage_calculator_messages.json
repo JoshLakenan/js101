@@ -1,0 +1,12 @@
+{
+  "welcome" : "Welcome to the Mortgage Payment Calculator!",
+  "aPr" : "(Example) 5% APR = .05\n\nEnter APR percentage as a decimal value as shown in the example above: ",
+  "aPrError" : "Hmmm...are you sure that was a valid APR?\n\n(Example) 5% APR = .05\n\nEnter APR percentage as a decimal value as shown in the example above: ",
+  "loanYears" : "Enter Loan Duration in Years: ",
+  "loanYearsError" : "Hmmm...are you sure that was a valid loan duration? \n\nEnter Enter Loan Duration as a number value: ",
+  "loanAmount" : "Enter the Loan Amount: ",
+  "loanAmountError" : "Hmmm...are you sure that was a valid loan amount? \n\nPlease enter the loan amount as a number without any symbols: ",
+  "output" : "The monthly payment will be: $",
+  "continue" : "Would you like to run another payment calculation?\n",
+  "goodbye" : "Goodbye!\n\n"
+}

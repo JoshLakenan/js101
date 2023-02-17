@@ -1,0 +1,41 @@
+
+{
+  "en" : {
+    "welcome" : "Welcome to Calculator!",
+    "fNum" : "What's the first number? \n",
+    "sNum" : "What's the second number? \n",
+    "invalidError" : "Hmm... that doesn't look like a valid number. Try again.",
+    "select" : "Select an operation:",
+    "answer" : "The result is: ",
+    "yesNo" : ["Yes", "No"],
+    "again" : "Would you like to run another calculation?",
+    "goodbye" : "Thanks for calculating numbers using this calculator. Goodbye!",
+    "operators" : ["Add", "Subtract", "Multiply", "Divide", "Modulo", "Power"]
+  },
+  "es" : {
+    "welcome" : "¡Bienvenido a la Calculadora!",
+    "fNum" : "¿Cuál es el primer número? \n",
+    "sNum" : "¿Cuál es el segundo número? \n",
+    "invalidError" : "Hmm... eso no parece ser un número válido. Inténtalo de nuevo.",
+    "select" : "Seleccione una operación:",
+    "answer" : "El resultado es: ",
+    "yesNo" : ["Sí", "No"],
+    "again" : "¿Te gustaría hacer otro cálculo?",
+    "goodbye" : "Gracias por usar esta calculadora. ¡Adiós!",
+    "operators" : ["Agregar", "Restar", "Multiplicar", "Dividir", "Módulo", "Potencia"]
+  },
+  "fr" : {
+    "welcome": "Bienvenue à la calculatrice !",
+    "fNum": "Quel est le premier nombre ? \n",
+    "sNum": "Quel est le deuxième nombre ? \n",
+    "invalidError": "Hmm... ça ne semble pas être un nombre valide. Réessayez.",
+    "select": "Sélectionnez une opération :",
+    "answer": "Le résultat est : ",
+    "yesNo": ["Oui", "Non"],
+    "again": "Voulez-vous faire un autre calcul ?",
+    "goodbye": "Merci d'avoir utilisé cette calculatrice. Au revoir !",
+    "operators" : ["Addition", "Soustraction", "Multiplication", "Division", "Modulo", "Puissance"]
+  }
+}
+  
+  
