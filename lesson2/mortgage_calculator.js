@@ -1,10 +1,7 @@
 /*
   Inputs - Loan Amount, Annual Percentage Rate, Duration
-
   Calculate - monthly interest rate, loan duration in months
-
   Output - payment amount Dollar and cents
-
   Hints - convert APR into Monthly interest rate for use in formula
         - be careful with units of time
         - Think about edge cases
