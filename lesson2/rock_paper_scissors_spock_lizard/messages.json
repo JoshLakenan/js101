@@ -1,0 +1,14 @@
+{
+  "userWins" : "You won the round! Way to go!",
+  "computerWins" : "The Supercomputer won the round.",
+  "tie" : "Looks like it's a tie.",
+  "matchWin" : "YOU WON THE MATCH! Thanks for playing!",
+  "matchLoss" : "The Supercomputer won the match. Better luck next time.",
+  "intro" : "Its time to play Rock, Paper, Scissors, Spock, Lizard!",
+  "rules" : "Here are the rules:\n\nRock beats Lizard and Scissors\nPaper beats Rock and Spock\nScissors beats Paper and Lizard\nSpock beats Scissors and Rock\nLizard beats Spock and Paper",
+  "begin" : "You're up against the most powerful SuperComputer in the world. First to win 3 rounds wins! Good luck.",
+  "quit" : "Goodbye! \n",
+  "continue" : "Hit enter to continue.",
+  "choice" : "Chose wisely."
+}
+
