@@ -102,6 +102,7 @@ function displayMatchResult () {
   }
 }
 
+//game flow control and method calling
 function playGame () {
   displayGameIntro();
 
@@ -122,5 +123,4 @@ function playGame () {
   displayMatchResult();
 }
 
-//Play Game!
 playGame();
