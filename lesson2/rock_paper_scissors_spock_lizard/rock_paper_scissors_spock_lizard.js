@@ -1,22 +1,11 @@
 const rls = require('readline-sync');
 const MSG = require('./messages.json');
 const VALID_CHOICES = ['Rock', 'Paper', 'Scissors', 'Spock', 'Lizard'];
+const LOSS_POSITIONS = [1, 3];
 const WINNING_SCORE = 3;
 
-const prompt = (msg) => console.log(`\n=> ${msg}`);
 
-//Create object for tracking the current status of the match
-let matchStatus = {
-  uWinCount : 0,
-  cWinCount : 0,
-  round : 1,
-  gameOn () {
-    return (this.uWinCount < WINNING_SCORE && this.cWinCount < WINNING_SCORE);
-  },
-  getWinner () {
-    return (this.uWinCount > this.cWinCount) ? MSG.matchWin : MSG.matchLoss;
-  }
-};
+const prompt = (msg) => console.log(`\n=> ${msg}`);
 
 function displayGameIntro () {
   console.clear();
@@ -27,9 +16,14 @@ function displayGameIntro () {
   console.clear();
 }
 
-function displayMatchStatus () {
-  prompt(`Round: ${matchStatus.round} - Current Score:\n
-    User - ${matchStatus.uWinCount} | ${matchStatus.cWinCount} - Supercomputer`);
+function displayMatchScore (matchStatus, additionalString = '') {
+  console.log("User - " + matchStatus.uWinCount + " | " +
+  matchStatus.cWinCount  + " - Supercomputer" + additionalString);
+}
+
+function displayMatchStatus (matchStatus) {
+  prompt(`Round: ${matchStatus.round} - Current Score:\n`);
+  displayMatchScore(matchStatus);
 }
 
 function getUserChoice () {
@@ -64,19 +58,25 @@ choices and and math comparison rules while not having to spell out each winning
 case.
 */
 function getRoundOutcome (uChoice, cChoice) {
-  let userIndex = VALID_CHOICES.indexOf(uChoice);
-
-  if (cChoice === VALID_CHOICES[getCircleIndex(userIndex - 3)] ||
-      cChoice === VALID_CHOICES[getCircleIndex(userIndex - 1)]) {
-    return MSG.userWins;
-  } else if (uChoice === cChoice) {
+  function userWins () {
+    let uIndex = VALID_CHOICES.indexOf(uChoice);
+    let cIndex = VALID_CHOICES.indexOf(cChoice);
+    
+    /*Return true if the computer's choice is in a any of the losing positions
+    relative to the user's choice.*/
+    return LOSS_POSITIONS.some(pos => cIndex === getCircleIndex(uIndex - pos));
+  }
+  
+  if (uChoice === cChoice) {
     return MSG.tie;
+  } else if (userWins()) {
+    return MSG.userWins;
   } else {
     return MSG.computerWins;
   }
 }
 
-function updateMatchStatus (roundOutcome) {
+function updateMatchStatus (matchStatus, roundOutcome) {
   matchStatus.round += 1;
   if (roundOutcome === MSG.userWins) {
     matchStatus.uWinCount += 1;
@@ -92,22 +92,36 @@ function displayRoundResult (userChoice, computerChoice, roundOutcome) {
   console.clear();
 }
 
-function displayMatchResult () {
+function displayMatchResult (matchStatus) {
   if (matchStatus.gameOn()) {
     prompt(MSG.quit);
   } else {
     prompt(matchStatus.getWinner());
-    prompt(`Final Score:\n
-    User - ${matchStatus.uWinCount} | ${matchStatus.cWinCount} - Supercomputer\n`);
+    prompt(`Final Score:\n`);
+    displayMatchScore(matchStatus, '\n');
   }
 }
 
 //game flow control and method calling
 function playGame () {
   displayGameIntro();
+  
+  //Create object for tracking the current status of the match
+    let matchStatus = {
+      uWinCount : 0,
+      cWinCount : 0,
+      round : 1,
+      gameOn () {
+        return (this.uWinCount < WINNING_SCORE && this.cWinCount < WINNING_SCORE);
+      },
+      getWinner () {
+        return (this.uWinCount > this.cWinCount) ? MSG.matchWin : MSG.matchLoss;
+      }
+    };
 
   while (matchStatus.gameOn()) {
-    displayMatchStatus();
+    
+    displayMatchStatus(matchStatus);
 
     //Get user choice and computer choice
     let userChoice = getUserChoice();
@@ -116,11 +130,11 @@ function playGame () {
 
     //determine round outcome and update game status
     let roundOutcome = getRoundOutcome(userChoice, computerChoice);
-    updateMatchStatus(roundOutcome);
+    updateMatchStatus(matchStatus, roundOutcome);
 
     displayRoundResult(userChoice, computerChoice, roundOutcome);
   }
-  displayMatchResult();
+  displayMatchResult(matchStatus);
 }
 
 playGame();
